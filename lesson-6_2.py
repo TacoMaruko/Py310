@@ -1,16 +1,13 @@
-# 專案內的主要執行檔，一定要使用 __name__ 來判斷式
-# 猜數字小遊戲，範圍 1～100
-# 沒有限制次數
-
 import random
-# 文件變數，範圍（Scope）作用到整份文件
-mini = 1
-maxx = 100
-count = 0
-rand_value = random.randint(mini, maxx)
-print(f"{rand_value}\n")  # 直接公佈答案，偷吃步
 
-if __name__ == "__main__":
+
+def guess_Num():
+    mini = 1
+    maxx = 100
+    count = 0
+    rand_value = random.randint(mini, maxx)
+    print(f"{rand_value}\n")  # 直接公佈答案，偷吃步
+
     print(f"檔案性質：{__name__}")
     print(f"變數屬性：{type(__name__)}")
     print(f"檔案所在：{__file__}")
@@ -41,4 +38,15 @@ if __name__ == "__main__":
             print("超出遊戲範圍！")
 
     print("遊戲結束！")
-print(f"遊戲已結束，仍可印出 keyin值 {keyin}")
+
+
+def play_game():
+    while True:
+        guess_Num()
+        guess_again = input("還要繼續猜嗎？（Y 或 N）")
+        if guess_again == "n" or guess_again == "N":
+            break
+
+
+if __name__ == "__main__":
+    play_game()
